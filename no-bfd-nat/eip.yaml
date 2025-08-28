@@ -1,0 +1,7 @@
+apiVersion: kubeovn.io/v1
+kind: OvnEip
+metadata:
+  name: pod-eip
+spec:
+  externalSubnet: external
+

@@ -1,0 +1,9 @@
+apiVersion: kubeovn.io/v1
+kind: Vpc
+metadata:
+  name: no-bfd-vpc
+spec:
+  namespaces: []
+  enableExternal: true
+  enableBfd: false
+

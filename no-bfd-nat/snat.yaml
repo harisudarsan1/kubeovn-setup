@@ -1,0 +1,8 @@
+apiVersion: kubeovn.io/v1
+kind: OvnSnatRule
+metadata:
+  name: lrp-eip-snat
+spec:
+  ovnEip: no-bfd-vpc-external   # this is the auto-created LRP EIP name
+  vpcSubnet: no-bfd-subnet
+

@@ -1,0 +1,8 @@
+# apiVersion: kubeovn.io/v1
+# kind: OvnFip
+# metadata:
+#   name: pod-fip
+# spec:
+#   eip: pod-eip
+#   nat: no-bfd-node1.default.ovn   # adjust based on pod name/namespace/provider
+#
