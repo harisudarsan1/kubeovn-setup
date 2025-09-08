@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: nettools
+  namespace: net
+  labels:
+    k8s-app: nettools
+spec:
+  selector:
+    matchLabels:
+      name: nettools
+  template:
+    metadata:
+      labels:
+        name: nettools
+      annotations:
+        ovn.kubernetes.io/logical_switch: "no-bfd-subnet"
+    spec:
+      hostNetwork: true   # gives direct access to node network namespace
+      dnsPolicy: ClusterFirstWithHostNet
+      containers:
+      - name: nettools
+        image: praqma/network-multitool:latest
+        imagePullPolicy: IfNotPresent
+        command:
+        - sleep
+        - "3600"
+        securityContext:
+          privileged: true
+        resources:
+          requests:
+            cpu: 50m
+            memory: 64Mi
+          limits:
+            cpu: 200m
+            memory: 256Mi
+      tolerations:
+      - operator: "Exists"  # ensures it runs on all nodes including tainted ones
+

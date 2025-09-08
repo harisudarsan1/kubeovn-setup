@@ -1,0 +1,14 @@
+apiVersion: kubeovn.io/v1
+kind: Vpc
+metadata:
+  name: vpc-extra
+spec:
+  namespaces: []
+  enableExternal: true
+  enableBfd: false
+  extraExternalSubnets: # configure extraExternalSubnets to support connecting any multiple public networks
+    - extra
+  staticRoutes:
+    - cidr: 0.0.0.0/0
+      nextHopIP: 172.20.0.1
+

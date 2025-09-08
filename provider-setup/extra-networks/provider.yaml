@@ -1,0 +1,13 @@
+apiVersion: kubeovn.io/v1
+kind: ProviderNetwork
+metadata:
+  name: extra
+spec:
+  defaultInterface: eth1
+  nodeSelector:
+    matchExpressions:
+      - key: kubernetes.io/hostname
+        operator: In
+        values:
+          - kube-ovn-worker2
+

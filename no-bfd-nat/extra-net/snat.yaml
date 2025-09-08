@@ -1,0 +1,7 @@
+apiVersion: kubeovn.io/v1
+kind: OvnSnatRule
+metadata:
+  name: lrp-eip-snat
+spec:
+  ovnEip: vpc-extra-extra   # this is the auto-created LRP EIP name
+  vpcSubnet: sub-extra

@@ -6,4 +6,7 @@ spec:
   namespaces: []
   enableExternal: true
   enableBfd: false
+  staticRoutes:
+    - cidr: 0.0.0.0/0
+      nextHopIP: 172.19.0.1
 

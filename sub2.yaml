@@ -1,0 +1,20 @@
+apiVersion: kubeovn.io/v1
+kind: Subnet
+metadata:
+  name: sn2
+spec:
+  cidrBlock: "10.2.0.0/24"
+  default: false
+  disableGatewayCheck: true
+  disableInterConnection: false
+  excludeIps:
+    - 10.0.0.1
+  gateway: 10.2.0.1 
+  gatewayNode: ''
+  provider: ovn
+  vpc: no-bfd-vpc
+  enableDHCP: true
+  dhcpV4Options: "lease_time=3600,dns_server='{10.96.0.10,1.1.1.1}'"
+  # dhcpV6Options: "server_id=00:00:00:2E:2F:C5"
+  # enableIPv6RA: true
+  # ipv6RAConfigs: "address_mode=dhcpv6_stateful,max_interval=30,min_interval=5,send_periodic=true"

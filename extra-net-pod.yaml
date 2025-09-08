@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-deploy-dual
+  name: extra-net-pod
   namespace: default
 spec:
   replicas: 4
   selector:
     matchLabels:
-      app: test-dual
+      app: extra-net-pod
   template:
     metadata:
       labels:
-        app: test-dual
+        app: extra-net-pod
       annotations:
-        ovn.kubernetes.io/logical_switch: no-bfd-subnet   # replace with your logical switch name
+        ovn.kubernetes.io/logical_switch: sub-extra   # replace with your logical switch name
     spec:
       containers:
       - name: test-container
@@ -25,5 +25,5 @@ spec:
         whenUnsatisfiable: DoNotSchedule
         labelSelector:
           matchLabels:
-            app: test-dual
+            app: extra-net-pod
 
